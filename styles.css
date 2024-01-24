@@ -17,6 +17,7 @@ nav {
     overflow: hidden;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px; /* Added margin for space between header and menu */
 }
 
 nav ul {
