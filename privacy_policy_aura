@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy for Aura Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #444;
+        }
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy for Aura Bot</h1>
+
+        <h2>1. Information Collection</h2>
+        <p>Aura collects certain user data to function effectively on Discord. This data includes:</p>
+        <ul>
+            <li>Discord usernames and IDs</li>
+            <li>Date of joining a server where Aura is active</li>
+        </ul>
+        <p>Aura does not log chat messages or any other interaction details beyond what is necessary to perform specific commands.</p>
+
+        <h2>2. Data Usage</h2>
+        <p>Data collected is used solely for enabling specific commands and enhancing the user experience on Discord. Aura does not use collected data for analytics, nor is it shared with third parties.</p>
+
+        <h2>3. Data Storage and Retention</h2>
+        <ul>
+            <li><strong>Storage:</strong> User data is stored in two ways:
+                <ul>
+                    <li>In-memory data (temporary) during the session for real-time processing.</li>
+                    <li>.json files (persistent) for data required over longer periods, allowing functionality across multiple sessions.</li>
+                </ul>
+            </li>
+            <li><strong>Retention:</strong> Collected data is retained as long as the bot is operational within a server. Data is deleted upon the bot’s removal or if explicitly requested by the user.</li>
+        </ul>
+
+        <h2>4. Data Security</h2>
+        <p>While Aura stores data in .json files and temporarily in-memory, it currently does not encrypt data. Only bot administrators can delete stored data as part of maintenance procedures.</p>
+
+        <h2>5. User Rights and Requests</h2>
+        <ul>
+            <li><strong>Data Requests:</strong> Users can request access to, correction, or deletion of their data by joining our support server, "Aura Support," and notifying the bot’s administrative team.</li>
+            <li><strong>Policy Updates:</strong> Any updates to this privacy policy will be communicated to users in the support server.</li>
+        </ul>
+    </div>
+</body>
+</html>
