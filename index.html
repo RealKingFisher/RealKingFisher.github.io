@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Link to Google Fonts for styling -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Script inclusion -->
     <script defer src="script.js"></script>
     <style>
         /* Reset and General Styling */
@@ -17,13 +16,12 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
-            background-color: #f8f9fa;  /* Default background color */
             background-image: url('https://www.birdguides-cdn.com/cdn/gallery/birds/DSC_2908_16.jpg'); 
             background-size: contain; 
             background-position: center; 
@@ -147,76 +145,65 @@
             text-decoration: underline;
         }
 
-        /* Color Picker Styling */
-        #color-btn {
-            margin-top: 30px;
-            padding: 15px 30px;
-            font-size: 1.2rem;
+        /* Chat Button */
+        #chat-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
             background-color: #007bff;
             color: white;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            border-radius: 50%;
             border: none;
-            border-radius: 8px;
             cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
         }
 
-        #color-btn:hover {
+        #chat-btn:hover {
             background-color: #0056b3;
         }
 
-        #color-input {
+        /* Chat Window */
+        #chat-window {
             display: none;
-        }
-
-        /* Game Styling */
-        #game-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            height: 300px;
-            margin: 1rem auto;
-            background-color: #f1f3f5;
-            border: 2px solid #4c4c9d;
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             overflow: hidden;
-            cursor: crosshair;
+            z-index: 1000;
         }
 
-        #bird {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background-image: url('https://cdn-icons-png.flaticon.com/512/616/616490.png'); /* Bird Icon */
-            background-size: cover;
-            transition: top 0.5s, left 0.5s;
+        #chat-header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
         }
 
-        /* Star Effect */
-        #star-effect {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            font-size: 3rem;
-            color: gold;
-            opacity: 0;
-            transform: translate(-50%, -50%);
-            animation: fadeEffect 2s ease-out;
-            display: none;
+        #chat-content {
+            padding: 15px;
+            height: 270px;
+            overflow-y: auto;
+            background-color: #f1f1f1;
         }
 
-        @keyframes fadeEffect {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.8);
-            }
-            50% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(1);
-            }
+        #chat-input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-top: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        #chat-input:focus {
+            outline: none;
         }
     </style>
 </head>
@@ -242,18 +229,6 @@
         <p>
             Welcome to my portfolio! I am an enthusiastic learner who enjoys exploring diverse skills, whether they're practical or just plain fun. 
             I have a deep passion for creating and problem-solving, whether it involves coding, animating, or understanding complex concepts.
-            <br><br>
-            I specialize in:
-            <ul>
-                <li><strong>Animating characters:</strong> 2D or 3D animations bring my imagination to life.</li>
-                <li><strong>Coding:</strong> Proficient in Python and JavaScript, I enjoy building projects like Discord bots and web applications.</li>
-                <li><strong>Physics and Math:</strong> Not just about solving problems, but truly understanding how things work at a deeper level.</li>
-            </ul>
-            <br>
-            I’m always curious and strive to push my limits by learning new technologies, improving my skills, and contributing to interesting projects. 
-            Whether it’s a complex algorithm or a creative animation sequence, I believe that learning is an endless journey.
-            <br><br>
-            Let’s connect and explore what we can build together!
         </p>
     </section>
 
@@ -269,21 +244,7 @@
                 <span class="skill-name">JavaScript</span>
                 <div class="progress-bar"></div>
             </li>
-            <li>
-                <span class="skill-name">HTML</span>
-                <div class="progress-bar"></div>
-            </li>
-            <li>
-                <span class="skill-name">C#</span>
-                <div class="progress-bar"></div>
-            </li>
         </ul>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="portfolio-section">
-        <h2>Projects</h2>
-        <p>Check out my Discord bot by clicking <a href="https://discord.com/oauth2/authorize?client_id=1296848509009662054&permissions=8&integration_type=0&scope=bot" target="_blank">here</a>.</p>
     </section>
 
     <!-- Contact Section -->
@@ -292,74 +253,74 @@
         <p>Feel free to connect with me on Discord: <strong>kingfishertm</strong></p>
     </section>
 
-    <!-- Color Picker Button -->
-    <button id="color-btn">Pick a Color</button>
-    <input type="color" id="color-input">
+    <!-- Chat Button -->
+    <button id="chat-btn">💬</button>
 
-    <!-- Fun Game Section -->
-    <section id="fun-game" class="portfolio-section">
-        <h2>🎮 Fun Game: Catch it!</h2>
-        <p>Click the bird as many times as you can before it escapes!</p>
-        <div id="game-container">
-            <div id="bird"></div>
-            <!-- Star Effect -->
-            <div id="star-effect">⭐</div>
+    <!-- Chat Window -->
+    <div id="chat-window">
+        <div id="chat-header">
+            <strong>Gemini AI</strong>
         </div>
-        <p>Score: <span id="score">0</span></p>
-    </section>
+        <div id="chat-content">
+            <!-- Chat messages will be appended here -->
+        </div>
+        <input type="text" id="chat-input" placeholder="Ask me anything...">
+    </div>
 
     <script>
-        // Color Picker Prank
-        document.getElementById('color-btn').addEventListener('click', function() {
-            document.getElementById('color-input').click();
+        const apiKey = 'AIzaSyAhjhjBowpvR_eXy0WGdRp3IuXRDpx_MUU';  // Replace with your actual Gemini API Key
+
+        // Toggle chat window
+        document.getElementById('chat-btn').addEventListener('click', function() {
+            const chatWindow = document.getElementById('chat-window');
+            chatWindow.style.display = chatWindow.style.display === 'none' || chatWindow.style.display === '' ? 'block' : 'none';
         });
 
-        document.getElementById('color-input').addEventListener('input', function() {
-            document.body.style.backgroundColor = this.value;
-        });
+        // Handle user input and make API call
+        document.getElementById('chat-input').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && this.value.trim()) {
+                const userMessage = this.value.trim();
+                appendMessage(userMessage, 'user');
+                this.value = '';
 
-        // Game Logic
-        const bird = document.getElementById('bird');
-        const scoreElement = document.getElementById('score');
-        const starEffect = document.getElementById('star-effect');
-        let score = 0;
-
-        function moveBird() {
-            const gameContainer = document.getElementById('game-container');
-            const maxX = gameContainer.clientWidth - bird.clientWidth;
-            const maxY = gameContainer.clientHeight - bird.clientHeight;
-
-            const randomX = Math.floor(Math.random() * maxX);
-            const randomY = Math.floor(Math.random() * maxY);
-
-            bird.style.left = randomX + 'px';
-            bird.style.top = randomY + 'px';
-        }
-
-        bird.addEventListener('click', () => {
-            score++;
-            scoreElement.textContent = score;
-            moveBird();
-
-            // Check if score is a multiple of 10
-            if (score % 10 === 0) {
-                triggerStarEffect();
+                // Make API call to Gemini using the format provided by Google
+                fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=' + apiKey, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: userMessage
+                            }]
+                        }]
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const aiMessage = `Gemini AI: ${data.contents[0].parts[0].text}`;
+                    appendMessage(aiMessage, 'ai');
+                })
+                .catch(error => {
+                    const aiMessage = "Gemini AI: Sorry, I couldn't process that.";
+                    appendMessage(aiMessage, 'ai');
+                });
             }
         });
 
-        function triggerStarEffect() {
-            starEffect.style.display = 'block'; // Show star
-            starEffect.style.animation = 'fadeEffect 2s ease-out'; // Apply animation
-
-            // Hide star after animation ends
-            setTimeout(() => {
-                starEffect.style.display = 'none';
-            }, 2000);
+        // Append messages to chat content
+        function appendMessage(message, sender) {
+            const messageContainer = document.createElement('div');
+            messageContainer.textContent = message;
+            messageContainer.style.padding = '10px';
+            messageContainer.style.marginBottom = '10px';
+            messageContainer.style.borderRadius = '5px';
+            messageContainer.style.backgroundColor = sender === 'user' ? '#007bff' : '#f1f1f1';
+            messageContainer.style.color = sender === 'user' ? 'white' : '#333';
+            document.getElementById('chat-content').appendChild(messageContainer);
+            document.getElementById('chat-content').scrollTop = document.getElementById('chat-content').scrollHeight;
         }
-
-        setInterval(moveBird, 1000); // Move the bird every 1 second
-        moveBird(); // Initial position
     </script>
-
 </body>
 </html>
