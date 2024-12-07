@@ -23,6 +23,7 @@
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
+            background-color: #f8f9fa;  /* Default background color */
             background-image: url('https://www.birdguides-cdn.com/cdn/gallery/birds/DSC_2908_16.jpg'); 
             background-size: contain; 
             background-position: center; 
@@ -146,7 +147,7 @@
             text-decoration: underline;
         }
 
-        /* Random Background Color Button */
+        /* Color Picker Styling */
         #color-btn {
             margin-top: 30px;
             padding: 15px 30px;
@@ -161,6 +162,10 @@
 
         #color-btn:hover {
             background-color: #0056b3;
+        }
+
+        #color-input {
+            display: none;
         }
 
         /* Game Styling */
@@ -181,7 +186,7 @@
             position: absolute;
             width: 60px;
             height: 60px;
-            background-image: url('https://cdn-icons-png.flaticon.com/512/616/616490.png'); /* Bird Icon */
+            background-image: url('https://cdn-icons-png.flaticon.com/512/616/616490.png'); 
             background-size: cover;
             transition: top 0.5s, left 0.5s;
         }
@@ -300,34 +305,48 @@
     </section>
 
     <script>
-
-        // Fun Game
+        // Game Logic
         const bird = document.getElementById('bird');
-        const starEffect = document.getElementById('star-effect');
         const scoreElement = document.getElementById('score');
+        const starEffect = document.getElementById('star-effect');
         let score = 0;
 
-        // Random bird movement
         function moveBird() {
             const gameContainer = document.getElementById('game-container');
-            const x = Math.random() * (gameContainer.clientWidth - bird.clientWidth);
-            const y = Math.random() * (gameContainer.clientHeight - bird.clientHeight);
-            bird.style.left = `${x}px`;
-            bird.style.top = `${y}px`;
+            const maxX = gameContainer.clientWidth - bird.clientWidth;
+            const maxY = gameContainer.clientHeight - bird.clientHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            bird.style.left = randomX + 'px';
+            bird.style.top = randomY + 'px';
         }
 
-        // Handle bird click
         bird.addEventListener('click', () => {
             score++;
             scoreElement.textContent = score;
-            // Show star effect
-            starEffect.style.display = 'block';
             moveBird();
-            setTimeout(() => starEffect.style.display = 'none', 2000);
+
+            // Check if score is a multiple of 10
+            if (score % 10 === 0) {
+                triggerStarEffect();
+            }
         });
 
-        // Initial movement
-        moveBird();
+        function triggerStarEffect() {
+            starEffect.style.display = 'block'; // Show star
+            starEffect.style.animation = 'fadeEffect 2s ease-out'; // Apply animation
+
+            // Hide star after animation ends
+            setTimeout(() => {
+                starEffect.style.display = 'none';
+            }, 2000);
+        }
+
+        setInterval(moveBird, 1000); // Move the bird every 1 second
+        moveBird(); // Initial position
     </script>
+
 </body>
 </html>
