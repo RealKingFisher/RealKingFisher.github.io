@@ -216,7 +216,12 @@
         <p>Feel free to connect with me on Discord: <strong>kingfishertm</strong></p>
     </section>
 
-    <!-- Fun Game Section -->
+    <!-- Prank Section -->
+<div id="prank-message" class="prank-message">
+    🚨 Warning: Are you sure you're ready for this? 🚨
+</div>
+
+<!-- Fun Game Section -->
 <section id="fun-game" class="portfolio-section">
     <h2>🎮 Fun Game: Catch the Bird!</h2>
     <p>Click the bird as many times as you can before it escapes! 🐦</p>
@@ -229,6 +234,30 @@
 </section>
 
 <style>
+    /* Prank Message Styling */
+    .prank-message {
+        background-color: #f8d7da;
+        color: #721c24;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        animation: shake 0.5s ease-out 3; /* Shake effect */
+    }
+
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+        75% { transform: translateX(-10px); }
+        100% { transform: translateX(0); }
+    }
+
     /* Game Styling */
     #game-container {
         position: relative;
@@ -282,6 +311,12 @@
 </style>
 
 <script>
+    // Prank Removal Logic
+    setTimeout(() => {
+        const prankMessage = document.getElementById('prank-message');
+        prankMessage.style.display = 'none'; // Hide prank message after a few seconds
+    }, 4000); // Wait for 4 seconds
+
     // Game Logic
     const bird = document.getElementById('bird');
     const scoreElement = document.getElementById('score');
@@ -324,6 +359,7 @@
     setInterval(moveBird, 1000); // Move the bird every 1 second
     moveBird(); // Initial position
 </script>
+
 
 
 
