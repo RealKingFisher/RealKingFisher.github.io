@@ -14,98 +14,135 @@
 
         /* Body Styling */
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f9f9f9;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
             color: #333;
             line-height: 1.6;
             padding: 0;
             margin: 0;
         }
 
-        /* Container */
+        /* Main Container */
         .container {
             width: 80%;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 30px;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 40px;
             background-color: #fff;
             border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            font-size: 1rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
         }
 
         /* Title Styling */
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #2d3748;
             margin-bottom: 20px;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         /* Section Headings */
         h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #2d3748;
-            margin: 20px 0 10px;
+            margin: 25px 0 15px;
+            font-weight: bold;
         }
 
         /* Paragraph Styling */
         p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #555;
-            margin-bottom: 15px;
-            line-height: 1.7;
+            margin-bottom: 18px;
+            line-height: 1.8;
+            text-align: justify;
         }
 
         /* List Styling */
         ul {
             list-style-type: none;
             padding-left: 0;
-            margin: 10px 0 20px 0;
+            margin: 10px 0 30px;
         }
 
         li {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #555;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            line-height: 1.6;
         }
 
-        /* Nested List */
         li ul {
             margin-left: 20px;
         }
 
         /* Link Styling */
         a {
-            color: #007bff;
+            color: #f24e1e;
             text-decoration: none;
+            font-weight: bold;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: #0056b3;
+            color: #e03c1b;
             text-decoration: underline;
         }
 
         /* Box-shadow Effect */
         .box-shadow {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         /* Footer Styling */
         footer {
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: #888;
-            margin-top: 30px;
+            margin-top: 40px;
+            font-weight: 500;
         }
 
         footer a {
-            color: #007bff;
+            color: #f24e1e;
         }
 
         footer a:hover {
-            color: #0056b3;
+            color: #e03c1b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            li {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -114,28 +151,29 @@
         <h1>Terms of Service for Aura Bot</h1>
 
         <h2>1. Acceptance of Terms</h2>
-        <p>By adding and using Aura Bot on your Discord server, you agree to be bound by these Terms of Service (ToS) as well as any applicable Discord terms and policies.</p>
+        <p>By adding and using Aura Bot on your Discord server, you agree to be bound by these Terms of Service (ToS) as well as any applicable Discord terms and policies. This includes understanding how we collect and use data as described in our Privacy Policy.</p>
 
         <h2>2. Bot Usage</h2>
-        <p>Aura Bot is provided as-is for entertainment and utility purposes. While we strive for reliable performance, we make no guarantees about its uptime, functionality, or data retention.</p>
+        <p>Aura Bot is provided as-is for entertainment and utility purposes. While we strive for reliable performance, we make no guarantees about its uptime, functionality, or data retention. By using Aura Bot, you acknowledge that there may be temporary outages or issues that we cannot foresee.</p>
 
         <h2>3. User Responsibilities</h2>
         <ul>
-            <li>Users are expected to follow all Discord community guidelines while interacting with Aura Bot.</li>
-            <li>Misuse of commands, spamming, or any behavior that negatively affects the experience of others is strictly prohibited.</li>
+            <li>Users must adhere to all Discord community guidelines while interacting with Aura Bot.</li>
+            <li>Misuse of commands, spamming, or engaging in behavior that negatively impacts other users is strictly prohibited.</li>
+            <li>By using Aura Bot, users agree not to exploit any known bugs, errors, or limitations in the system.</li>
         </ul>
 
         <h2>4. Data Collection and Privacy</h2>
-        <p>Aura Bot may collect limited user data as outlined in our <a href="privacy_policy_aura.html">Privacy Policy</a>. This data is solely for enabling features and commands and will not be shared with third parties.</p>
+        <p>Aura Bot may collect limited user data, which is necessary for enabling features and commands. For more details, refer to our <a href="privacy_policy_aura.html">Privacy Policy</a> page. We do not share or sell any collected data to third parties.</p>
 
         <h2>5. Liability and Disclaimer</h2>
-        <p>Aura Bot is provided on an "as-is" basis, and the developers are not liable for any issues arising from its use. By using Aura, you acknowledge that the developers are not responsible for any data loss, server issues, or disruptions caused by the bot.</p>
+        <p>Aura Bot is provided on an "as-is" basis, and the developers are not liable for any issues arising from its use. This includes, but is not limited to, data loss, server issues, or disruptions caused by the bot. Users acknowledge the inherent risks of using third-party bots on Discord and agree to use Aura at their own discretion.</p>
 
         <h2>6. Modification and Termination</h2>
-        <p>We reserve the right to modify or terminate Aura Bot's services at any time without notice. We may also modify these terms, and any changes will be posted in our support server.</p>
+        <p>We reserve the right to modify, suspend, or terminate Aura Bot's services at any time without notice. This includes modifying or updating these Terms of Service. Any changes will be communicated to users via our support server.</p>
 
         <h2>7. Contact Information</h2>
-        <p>For any questions or concerns about these Terms of Service, please join our support server, "Aura Support," and contact the team.</p>
+        <p>If you have any questions or concerns about these Terms of Service, please join our support server, "Aura Support," and contact the team for assistance.</p>
     </div>
 
     <footer>
