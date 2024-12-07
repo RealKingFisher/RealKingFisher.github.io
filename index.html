@@ -141,6 +141,102 @@
             color: #0056b3;
             text-decoration: underline;
         }
+
+        /* Color Picker Styling */
+        #color-btn {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #color-btn:hover {
+            background-color: #0056b3;
+        }
+
+        #color-input {
+            display: none;
+        }
+
+        /* Prank Message Styling */
+        .prank-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            animation: shake 0.5s ease-out 3; /* Shake effect */
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Game Styling */
+        #game-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            margin: 1rem auto;
+            background-color: #f1f3f5;
+            border: 2px solid #4c4c9d;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: crosshair;
+        }
+
+        #bird {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/616/616490.png'); /* Bird Icon */
+            background-size: cover;
+            transition: top 0.5s, left 0.5s;
+        }
+
+        /* Star Effect */
+        #star-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 3rem;
+            color: gold;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            animation: fadeEffect 2s ease-out;
+            display: none;
+        }
+
+        @keyframes fadeEffect {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -161,25 +257,24 @@
 
     <!-- About Section -->
     <section id="about" class="portfolio-section">
-    <h2>About Me</h2>
-    <p>
-        Welcome to my portfolio! I am an enthusiastic learner who enjoys exploring diverse skills, whether they're practical or just plain fun. 
-        I have a deep passion for creating and problem-solving, whether it involves coding, animating, or understanding complex concepts.
-        <br><br>
-        I specialize in:
-        <ul>
-            <li><strong>Animating characters:</strong> 2D or 3D animations bring my imagination to life.</li>
-            <li><strong>Coding:</strong> Proficient in Python and JavaScript, I enjoy building projects like Discord bots and web applications.</li>
-            <li><strong>Physics and Math:</strong> Not just about solving problems, but truly understanding how things work at a deeper level.</li>
-        </ul>
-        <br>
-        I’m always curious and strive to push my limits by learning new technologies, improving my skills, and contributing to interesting projects. 
-        Whether it’s a complex algorithm or a creative animation sequence, I believe that learning is an endless journey.
-        <br><br>
-        Let’s connect and explore what we can build together!
-    </p>
-</section>
-
+        <h2>About Me</h2>
+        <p>
+            Welcome to my portfolio! I am an enthusiastic learner who enjoys exploring diverse skills, whether they're practical or just plain fun. 
+            I have a deep passion for creating and problem-solving, whether it involves coding, animating, or understanding complex concepts.
+            <br><br>
+            I specialize in:
+            <ul>
+                <li><strong>Animating characters:</strong> 2D or 3D animations bring my imagination to life.</li>
+                <li><strong>Coding:</strong> Proficient in Python and JavaScript, I enjoy building projects like Discord bots and web applications.</li>
+                <li><strong>Physics and Math:</strong> Not just about solving problems, but truly understanding how things work at a deeper level.</li>
+            </ul>
+            <br>
+            I’m always curious and strive to push my limits by learning new technologies, improving my skills, and contributing to interesting projects. 
+            Whether it’s a complex algorithm or a creative animation sequence, I believe that learning is an endless journey.
+            <br><br>
+            Let’s connect and explore what we can build together!
+        </p>
+    </section>
 
     <!-- Skills Section -->
     <section id="skills" class="portfolio-section">
@@ -216,152 +311,85 @@
         <p>Feel free to connect with me on Discord: <strong>kingfishertm</strong></p>
     </section>
 
+    <!-- Color Picker Button -->
+    <button id="color-btn">Pick a Color</button>
+    <input type="color" id="color-input">
+
     <!-- Prank Section -->
-<div id="prank-message" class="prank-message">
-    🚨 Warning: Are you sure you're ready for this? 🚨
-</div>
-
-<!-- Fun Game Section -->
-<section id="fun-game" class="portfolio-section">
-    <h2>🎮 Fun Game: Catch it!</h2>
-    <p>Click the star as many times as you can before it escapes!</p>
-    <div id="game-container">
-        <div id="bird"></div>
-        <!-- Star Effect -->
-        <div id="star-effect">⭐</div>
+    <div id="prank-message" class="prank-message">
+        🚨 Warning: Are you sure you're ready for this? 🚨
     </div>
-    <p>Score: <span id="score">0</span></p>
-</section>
 
-<style>
-    /* Prank Message Styling */
-    .prank-message {
-        background-color: #f8d7da;
-        color: #721c24;
-        text-align: center;
-        padding: 1rem;
-        font-size: 1.5rem;
-        font-weight: bold;
-        position: absolute;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 999;
-        animation: shake 0.5s ease-out 3; /* Shake effect */
-    }
+    <!-- Fun Game Section -->
+    <section id="fun-game" class="portfolio-section">
+        <h2>🎮 Fun Game: Catch it!</h2>
+        <p>Click the bird as many times as you can before it escapes!</p>
+        <div id="game-container">
+            <div id="bird"></div>
+            <!-- Star Effect -->
+            <div id="star-effect">⭐</div>
+        </div>
+        <p>Score: <span id="score">0</span></p>
+    </section>
 
-    @keyframes shake {
-        0% { transform: translateX(0); }
-        25% { transform: translateX(-10px); }
-        50% { transform: translateX(10px); }
-        75% { transform: translateX(-10px); }
-        100% { transform: translateX(0); }
-    }
-
-    /* Game Styling */
-    #game-container {
-        position: relative;
-        width: 100%;
-        max-width: 600px;
-        height: 300px;
-        margin: 1rem auto;
-        background-color: #f1f3f5;
-        border: 2px solid #4c4c9d;
-        border-radius: 8px;
-        overflow: hidden;
-        cursor: crosshair;
-    }
-
-    #bird {
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        background-image: url('https://cdn-icons-png.flaticon.com/512/616/616490.png'); /* Bird Icon */
-        background-size: cover;
-        transition: top 0.5s, left 0.5s;
-    }
-
-    /* Star Effect */
-    #star-effect {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        font-size: 3rem;
-        color: gold;
-        opacity: 0;
-        transform: translate(-50%, -50%);
-        animation: fadeEffect 2s ease-out;
-        display: none;
-    }
-
-    @keyframes fadeEffect {
-        0% {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.8);
-        }
-        50% {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1.2);
-        }
-        100% {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(1);
-        }
-    }
-</style>
-
-<script>
-    // Prank Removal Logic
-    setTimeout(() => {
-        const prankMessage = document.getElementById('prank-message');
-        prankMessage.style.display = 'none'; // Hide prank message after a few seconds
-    }, 4000); // Wait for 4 seconds
-
-    // Game Logic
-    const bird = document.getElementById('bird');
-    const scoreElement = document.getElementById('score');
-    const starEffect = document.getElementById('star-effect');
-    let score = 0;
-
-    function moveBird() {
-        const gameContainer = document.getElementById('game-container');
-        const maxX = gameContainer.clientWidth - bird.clientWidth;
-        const maxY = gameContainer.clientHeight - bird.clientHeight;
-
-        const randomX = Math.floor(Math.random() * maxX);
-        const randomY = Math.floor(Math.random() * maxY);
-
-        bird.style.left = randomX + 'px';
-        bird.style.top = randomY + 'px';
-    }
-
-    bird.addEventListener('click', () => {
-        score++;
-        scoreElement.textContent = score;
-        moveBird();
-
-        // Check if score is a multiple of 10
-        if (score % 10 === 0) {
-            triggerStarEffect();
-        }
-    });
-
-    function triggerStarEffect() {
-        starEffect.style.display = 'block'; // Show star
-        starEffect.style.animation = 'fadeEffect 2s ease-out'; // Apply animation
-
-        // Hide star after animation ends
+    <script>
+        // Prank Removal Logic
         setTimeout(() => {
-            starEffect.style.display = 'none';
-        }, 2000);
-    }
+            const prankMessage = document.getElementById('prank-message');
+            prankMessage.style.display = 'none'; // Hide prank message after a few seconds
+        }, 4000); // Wait for 4 seconds
 
-    setInterval(moveBird, 1000); // Move the bird every 1 second
-    moveBird(); // Initial position
-</script>
+        // Color Picker Prank
+        document.getElementById('color-btn').addEventListener('click', function() {
+            document.getElementById('color-input').click();
+        });
 
+        document.getElementById('color-input').addEventListener('input', function() {
+            document.body.style.backgroundColor = this.value;
+        });
 
+        // Game Logic
+        const bird = document.getElementById('bird');
+        const scoreElement = document.getElementById('score');
+        const starEffect = document.getElementById('star-effect');
+        let score = 0;
 
+        function moveBird() {
+            const gameContainer = document.getElementById('game-container');
+            const maxX = gameContainer.clientWidth - bird.clientWidth;
+            const maxY = gameContainer.clientHeight - bird.clientHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            bird.style.left = randomX + 'px';
+            bird.style.top = randomY + 'px';
+        }
+
+        bird.addEventListener('click', () => {
+            score++;
+            scoreElement.textContent = score;
+            moveBird();
+
+            // Check if score is a multiple of 10
+            if (score % 10 === 0) {
+                triggerStarEffect();
+            }
+        });
+
+        function triggerStarEffect() {
+            starEffect.style.display = 'block'; // Show star
+            starEffect.style.animation = 'fadeEffect 2s ease-out'; // Apply animation
+
+            // Hide star after animation ends
+            setTimeout(() => {
+                starEffect.style.display = 'none';
+            }, 2000);
+        }
+
+        setInterval(moveBird, 1000); // Move the bird every 1 second
+        moveBird(); // Initial position
+    </script>
 
 </body>
 </html>
