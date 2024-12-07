@@ -163,30 +163,6 @@
             display: none;
         }
 
-        /* Prank Message Styling */
-        .prank-message {
-            background-color: #f8d7da;
-            color: #721c24;
-            text-align: center;
-            padding: 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            position: absolute;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 999;
-            animation: shake 0.5s ease-out 3; /* Shake effect */
-        }
-
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            50% { transform: translateX(10px); }
-            75% { transform: translateX(-10px); }
-            100% { transform: translateX(0); }
-        }
-
         /* Game Styling */
         #game-container {
             position: relative;
@@ -315,11 +291,6 @@
     <button id="color-btn">Pick a Color</button>
     <input type="color" id="color-input">
 
-    <!-- Prank Section -->
-    <div id="prank-message" class="prank-message">
-        🚨 Warning: Are you sure you're ready for this? 🚨
-    </div>
-
     <!-- Fun Game Section -->
     <section id="fun-game" class="portfolio-section">
         <h2>🎮 Fun Game: Catch it!</h2>
@@ -333,12 +304,6 @@
     </section>
 
     <script>
-        // Prank Removal Logic
-        setTimeout(() => {
-            const prankMessage = document.getElementById('prank-message');
-            prankMessage.style.display = 'none'; // Hide prank message after a few seconds
-        }, 4000); // Wait for 4 seconds
-
         // Color Picker Prank
         document.getElementById('color-btn').addEventListener('click', function() {
             document.getElementById('color-input').click();
