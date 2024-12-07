@@ -32,6 +32,13 @@
             border-radius: 12px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             font-size: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect for the container */
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
         }
 
         /* Title Styling */
@@ -40,6 +47,8 @@
             color: #2d3748;
             margin-bottom: 20px;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         /* Section Headings */
@@ -47,6 +56,7 @@
             font-size: 1.8rem;
             color: #2d3748;
             margin: 20px 0 10px;
+            font-weight: bold;
         }
 
         /* Paragraph Styling */
@@ -87,11 +97,6 @@
             text-decoration: underline;
         }
 
-        /* Box-shadow Effect */
-        .box-shadow {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
         /* Footer Styling */
         footer {
             text-align: center;
@@ -110,7 +115,7 @@
     </style>
 </head>
 <body>
-    <div class="container box-shadow">
+    <div class="container">
         <h1>Privacy Policy for Aura Bot</h1>
 
         <h2>1. Information Collection</h2>
