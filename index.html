@@ -216,13 +216,14 @@
         <p>Feel free to connect with me on Discord: <strong>kingfishertm</strong></p>
     </section>
 
-    <!-- mini game Section -->
     <!-- Fun Game Section -->
 <section id="fun-game" class="portfolio-section">
-    <h2>🎮 Fun Game: Catch it!</h2>
-    <p>Click the star as many times as you can before it escapes!</p>
+    <h2>🎮 Fun Game: Catch the Bird!</h2>
+    <p>Click the bird as many times as you can before it escapes! 🐦</p>
     <div id="game-container">
         <div id="bird"></div>
+        <!-- Star Effect -->
+        <div id="star-effect">⭐</div>
     </div>
     <p>Score: <span id="score">0</span></p>
 </section>
@@ -244,12 +245,39 @@
 
     #bird {
         position: absolute;
-        width: 50px;
-        height: 50px;
-        background-image: url('https://cdn-icons-png.flaticon.com/512/616/616490.png');
+        width: 60px;
+        height: 60px;
+        background-image: url('https://cdn-icons-png.flaticon.com/512/616/616490.png'); /* Bird Icon */
         background-size: cover;
-        border-radius: 50%;
         transition: top 0.5s, left 0.5s;
+    }
+
+    /* Star Effect */
+    #star-effect {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 3rem;
+        color: gold;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        animation: fadeEffect 2s ease-out;
+        display: none;
+    }
+
+    @keyframes fadeEffect {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+        50% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1);
+        }
     }
 </style>
 
@@ -257,6 +285,7 @@
     // Game Logic
     const bird = document.getElementById('bird');
     const scoreElement = document.getElementById('score');
+    const starEffect = document.getElementById('star-effect');
     let score = 0;
 
     function moveBird() {
@@ -275,11 +304,27 @@
         score++;
         scoreElement.textContent = score;
         moveBird();
+
+        // Check for 10 points to trigger the star effect
+        if (score === 10) {
+            triggerStarEffect();
+        }
     });
+
+    function triggerStarEffect() {
+        starEffect.style.display = 'block'; // Show star
+        starEffect.style.animation = 'fadeEffect 2s ease-out'; // Apply animation
+
+        // Hide star after animation ends
+        setTimeout(() => {
+            starEffect.style.display = 'none';
+        }, 2000);
+    }
 
     setInterval(moveBird, 1000); // Move the bird every 1 second
     moveBird(); // Initial position
 </script>
+
 
 </body>
 </html>
