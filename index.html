@@ -305,8 +305,8 @@
         scoreElement.textContent = score;
         moveBird();
 
-        // Check for 10 points to trigger the star effect
-        if (score === 10) {
+        // Check if score is a multiple of 10
+        if (score % 10 === 0) {
             triggerStarEffect();
         }
     });
@@ -324,6 +324,7 @@
     setInterval(moveBird, 1000); // Move the bird every 1 second
     moveBird(); // Initial position
 </script>
+
 
 
 </body>
